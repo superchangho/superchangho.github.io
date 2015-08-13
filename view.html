@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<head>
+	<title>share me!</title>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+$(document).ready(function() {
+	var url = location.href;
+	var datas = url.split("?");
+	var params = url.substring(datas[0].length + 1).split("&");
+	for (var i = 0; i < params.length; i++) {
+		var entry = params[i].split("=");
+		var key = entry[0];
+		var value = entry[1];
+		if (key == "next") {
+			//location.href = unescape(value);
+			$("iframe").attr("src", unescape(value));
+			//$("iframe").css("width", )
+			
+			fn_ResizeFrame();
+		}
+	}
+})
+
+function fn_ResizeFrame() {
+    var iframeHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    iframeHeight = iframeHeight - 43;
+    $(".land-page").height(iframeHeight);
+
+    var iframeWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    $(".land-page").width(iframeWidth);
+}
+
+
+</script>
+</head>
+<body>
+<div class="land_page">
+    <div class="land-page">
+	    <iframe id="land_page" name="land_page" class="land-page iframe" src="http://m.yna.co.kr/kr/contents/?cid=AKR20150811155800848&amp;input=1195m&amp;mobile" style="width:100%;height:100%;"></iframe>
+    </div>
+</div>
+<div id="container_msg" class="container-sendmsg cbp-spmenu cbp-spmenu-horizontal cbp-spmenu-bottom">
+    <!-- header-main -->
+	<header id="header" class="header-common">
+        <hgroup>
+            <h1 id="showBottom"><span>꽃다발과 해독주스를 집에서 편하게 받아보세요 </span></h1>
+            <span class="handle"></span>
+        </hgroup>
+        <div class="menu">
+            <a href="/" title="홈">홈</a>
+        </div>
+
+        <div class="pointTicker">
+        	<div id="pointTicker">
+				<ul>
+					<li><a href="/Member/Certify" title="소문내고">소문내고</a></li>
+					<li><a href="/Member/Certify" title="현금포인트">현금포인트</a></li>
+				</ul>
+			</div>
+        </div>
+
+    </header>
+	<!-- content-sendmsg -->
+    <section id="content_msg" class="content-sendmsg">
+        <!-- sendmsg -->
+        <section class="sendmsg-container">
+            <header class="sendmsg-header">
+                <h1>냠냠해봐라</h1>
+            </header>
+        	<div class="sendmsg-main">
+                    <div class="form-msg">
+                        <div class="form-group">
+                            <div class="form-text msg">
+                                <div class="msg-notice">나는 카피다</div>
+                                <div class="btn-box">
+                                    <input id="CampaignID" name="CampaignID" type="hidden" value="2015081322180001" />
+                                    <input id="DistributionID" name="DistributionID" type="hidden" value="" />
+                                    <input id="JoinID" name="JoinID" type="hidden" value="" />
+                                    <button id="btnSend" type="button" class="btn-send">소문내기</button>
+							    </div>
+                                <div class="msg-box">냠냠 텐핑 카피
+							    </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </section>
+        <!--// sendmsg -->
+    </section>
+    <!--// content -->
+</div>
+
+</body>
+</html>
