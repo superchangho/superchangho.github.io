@@ -123,11 +123,7 @@ function drawList() {
 				},
 				webButton : {
 					text : 'Share Me!',
-					url : 'https://superchangho.github.io' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
-				},
-				webLink : {
-					text : "본문" + list[i].title + "본문",
-					url : list[i].url // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+					url : 'https://superchangho.github.io/redirect.html?next=' + escape(list[i].url) // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
 				}
 			});
 		} catch (e) {

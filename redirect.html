@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<head>
+	<title>share me!</title>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+var url = location.href;
+var datas = url.split("?");
+var params = url.substring(datas[0].length + 1).split("&");
+for (var i = 0; i < params.length; i++) {
+	var entry = params[i].split("=");
+	var key = entry[0];
+	var value = entry[1];
+	if (key == "next") {
+		location.href = unescape(value);
+	}
+}
+</script>
+</head>
+<body>
+</body>
+</html>
