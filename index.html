@@ -58,6 +58,8 @@ Kakao.init('8d69e216872707f3d5da75f1f2c0fdbf');
           <div class="list-group _contentlist">
           </div>
         </div><!-- /.col-sm-4 -->
+    </div>
+
 
 <script>
 var list = [];
@@ -68,6 +70,7 @@ function saveUrl() {
 		url : baseUrl + '/saveurl.json',
 		data : {url:$.trim($("#txtUrl").val())},
 		type : "GET",
+		timeout : 1000,
 		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 		complete : function(res) {
 			alert("save");
@@ -80,6 +83,7 @@ function loadList() {
 	$.ajax({
 		url : baseUrl + '/getlist.json',
 		type : "GET",
+		timeout : 1000,
 		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 		complete : function(res) {
 			var json = $.parseJSON(res.responseText);
