@@ -36,24 +36,27 @@ function loadList() {
 		} 
 	});
 }
-
 var __listTemplate = '\
-	<a href="#{url}" class="list-group-item" target="_blank">\
-		<h4 class="list-group-item-heading">#{title} &nbsp;<img src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg" id="#{linkBtnId}" width="30" height="30"/></h4>\
-		#{img}\
-		<p class="list-group-item-text">#{summary}</p>\
-	</a>\
+	<li class="list-group-item">\
+		<span style="float:right"><img src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg" id="#{linkBtnId}" width="30" height="30"/></span>\
+		<a href="#{url}" target="_blank">#{title}</a>\
+		<p onclick="window.open(\'#{url}\')">#{summary}#{img}</p>\
+	</li>\
 ';
 
 function drawList() {
 	var welList = $("._contentlist");
 	for (var i = 0; i < list.length; i++) {
 		list[i].linkBtnId = "kakao-link-btn" + i;
+		if (!list[i].title) {
+			list[i].title = "[제목없음]";
+		}
 		if (!list[i].img) {
 			list[i]["img"] = "";
 		} else {
 			list[i]["img"] = "<img src='" + list[i].img + "' width='160' height='120'>";			
 		}
+		list[i]["summary"] = "본문" + list[i]["summary"] + "본문";
 		var html = makeHtml(__listTemplate, list[i]);
 		var wel = $(html);
 		welList.append(wel);
