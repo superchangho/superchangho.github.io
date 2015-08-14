@@ -38,7 +38,7 @@ function loadList() {
 }
 var __listTemplate = '\
 	<li class="list-group-item">\
-		<span style="float:right"><img src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg" id="#{linkBtnId}" width="30" height="30"/></span>\
+		<span style="float:right" id="#{linkBtnId}"><img src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg" width="30" height="30"/></span>\
 		<a href="#{url}" target="_blank">#{title}</a>\
 		<p onclick="window.open(\'#{url}\')">#{summary}#{img}</p>\
 	</li>\
@@ -47,7 +47,8 @@ var __listTemplate = '\
 function drawList() {
 	var welList = $("._contentlist");
 	for (var i = 0; i < list.length; i++) {
-		list[i].linkBtnId = "kakao-link-btn" + i;
+		var linkBtnId = "kakao-link-btn" + i;
+		list[i].linkBtnId = linkBtnId;
 		if (!list[i].title) {
 			list[i].title = "[제목없음]";
 		}
