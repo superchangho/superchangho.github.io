@@ -40,7 +40,7 @@ var __listTemplate = '\
 	<li class="list-group-item">\
 		<span style="float:right" id="#{linkBtnId}"><img src="http://dn.api1.kage.kakao.co.kr/14/dn/btqa9B90G1b/GESkkYjKCwJdYOkLvIBKZ0/o.jpg" width="30" height="30"/></span>\
 		<a href="#{url}" target="_blank">#{title}</a>\
-		<p onclick="window.open(\'#{url}\')">#{summary}#{img}</p>\
+		<p onclick="window.open(\'#{url}\')">#{summary}#{imgTag}</p>\
 	</li>\
 ';
 
@@ -52,10 +52,11 @@ function drawList() {
 		if (!list[i].title) {
 			list[i].title = "[제목없음]";
 		}
-		if (!list[i].img) {
-			list[i]["img"] = "";
+		if (!list[i].image) {
+			list[i].image = "http://dn.api1.kage.kakao.co.kr/14/dn/btqaWmFftyx/tBbQPH764Maw2R6IBhXd6K/o.jpg";	// default image;
+			list[i]["imgTag"] = "";
 		} else {
-			list[i]["img"] = "<img src='" + list[i].img + "' width='160' height='120'>";			
+			list[i]["imgTag"] = "<img src='" + list[i].image + "' width='160' height='120'>";			
 		}
 		list[i]["summary"] = "본문" + list[i]["summary"] + "본문";
 		var html = makeHtml(__listTemplate, list[i]);
@@ -68,7 +69,7 @@ function drawList() {
 				container : '#' + linkBtnId,
 				label : list[i].title,
 				image : {
-					src : 'http://dn.api1.kage.kakao.co.kr/14/dn/btqaWmFftyx/tBbQPH764Maw2R6IBhXd6K/o.jpg',
+					src : list[i].image,
 					width : '300',
 					height : '200'
 				},
